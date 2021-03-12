@@ -70,6 +70,7 @@ void del(shared_ptr<LinkedListNode> head) {
     }
 }
 
+// 输出链表
 void print(shared_ptr<LinkedListNode> head) {
     while (head->next) {
         head = head->next;
