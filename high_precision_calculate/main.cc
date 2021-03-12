@@ -91,7 +91,9 @@ int main(int argc, char const *argv[]) {
 	char opt;
 	std::string a, b;
 	std::cin >> a >> opt >> b;
-	int d = stoi(b);
+	int d;
+	if (opt == '/')
+		d = stoi(b);
 	const int n = a.length(), m = b.length();
 	std::vector<int> A(n), B(m);
 	
