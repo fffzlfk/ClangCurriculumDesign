@@ -8,22 +8,24 @@
 #include <memory>
 using namespace std;
 
+template<typename T>
 struct LinkedListNode {
-    int val;
+    T val;
     shared_ptr<LinkedListNode> next;
     LinkedListNode() = default;
-    LinkedListNode(int v) : val(v) {}
+    LinkedListNode(T _val) : val(_val) {}
 };
 
 // 创建一个长度为n的链表
-auto create(int n) {
-    auto head = make_shared<LinkedListNode>();
+template<typename T>
+auto createLinkedList(int N) {
+    auto head = make_shared<LinkedListNode<T>>();
     auto end = head;
-    int val;
+    T t;
     puts("请输入要添加的元素，以空格分隔");
-    for (int i = 0; i < n; i++) {
-        cin >> val;
-        auto node = make_shared<LinkedListNode>(val);
+    for (int i = 0; i < N; i++) {
+        cin >> t;
+        auto node = make_shared<LinkedListNode<T>>(t);
         end->next = node;
         end = node;
     }
@@ -31,9 +33,12 @@ auto create(int n) {
     return head;
 }
 
+
 // 在第n个元素后插入一个新结点
-void insert(shared_ptr<LinkedListNode> head) {
-    int n, val;
+template<typename T>
+void insertNode(shared_ptr<LinkedListNode<T>> head) {
+    int n;
+    T val;
     puts("请输入要插入的位置和元素");
     cin >> n >> val;
     int i = 0;
@@ -43,7 +48,7 @@ void insert(shared_ptr<LinkedListNode> head) {
         i++;
     }
     if (t != nullptr) {
-        auto node = make_shared<LinkedListNode>(val);
+        auto node = make_shared<LinkedListNode<T>>(val);
         node->next = t->next;
         t->next = node;
     } else {
@@ -52,7 +57,8 @@ void insert(shared_ptr<LinkedListNode> head) {
 }
 
 // 删除链表的第n个元素
-void del(shared_ptr<LinkedListNode> head) {
+template<typename T>
+void delNode(shared_ptr<LinkedListNode<T>> head) {
     int n;
     puts("请输入要删除结点的位置");
     cin >> n;
@@ -71,7 +77,8 @@ void del(shared_ptr<LinkedListNode> head) {
 }
 
 // 输出链表
-void print(shared_ptr<LinkedListNode> head) {
+template<typename T>
+void printLinkedList(shared_ptr<LinkedListNode<T>> head) {
     while (head->next) {
         head = head->next;
         cout << head->val << " ";
@@ -83,25 +90,24 @@ int main() {
     int n;
     puts("请输入要创建链表的长度");
     cin >> n;
-    auto h = create(n);
+    auto h = createLinkedList<int>(n);
     int opt;
     while (true) {
         puts("输入1插入结点\n输入2删除结点\n输入3打印链表\n输入0退出");
         cin >> opt;
         switch (opt) {
             case 1:
-                insert(h);
+                insertNode(h);
                 continue;
             case 2:
-                del(h);
+                delNode(h);
                 continue;
             case 3:
-                print(h);
+                printLinkedList(h);
                 continue;
             default:
                 return 0;
         }
     }
-    print(h);
     return 0;
 }
