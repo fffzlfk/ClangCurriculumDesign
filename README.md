@@ -3,6 +3,10 @@
 ### Usage
 
 ```bash
+git clone https://github.com/fffzlfk/ClangCurriculumDesign.git
+
+cd ClangCurriculumDesign
+
 ./test.sh [文件夹名] # 如./test.sh linkedlist
 ```
 
