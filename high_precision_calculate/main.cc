@@ -88,6 +88,7 @@ void div(std::vector<int> &A, int b) {
 }
 
 int main(int argc, char const *argv[]) {
+	puts("请输入操作数及运算符");
 	char opt;
 	std::string a, b;
 	std::cin >> a >> opt >> b;

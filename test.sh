@@ -1,3 +1,2 @@
-g++ $1/main.cc
-./a.out
-rm a.out
+make -C $1
+make -C $1 clear

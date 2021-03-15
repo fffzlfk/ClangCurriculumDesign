@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <vector>
 
 struct Node {
     int val;
@@ -7,13 +8,12 @@ struct Node {
     Node(int _v) : val(_v) {}
 };
 
-std::shared_ptr<Node> create() {
-    int cur;
-    std::cin >> cur;
-    if (!cur) return nullptr;
-    auto root = std::make_shared<Node>(cur);
-    root->left = create();
-    root->right = create();
+std::shared_ptr<Node> create(std::vector<int>::iterator &begin,
+                             const std::vector<int>::iterator end) {
+    if (begin >= end || *begin == -1) return nullptr;
+    auto root = std::make_shared<Node>(*begin);
+    root->left = create(++begin, end);
+    root->right = create(++begin, end);
     return root;
 }
 
@@ -25,7 +25,9 @@ void dfs(std::shared_ptr<Node> root) {
 }
 
 int main() {
-    auto root = create();
+    std::vector<int> v{1, 2, 4, -1, -1, -1, 3};
+    auto it = v.begin();
+    auto root = create(it, v.end());
     dfs(root);
     return 0;
 }
