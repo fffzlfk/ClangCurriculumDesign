@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <Windows.h>
 
-using namespace std;
-
 int main(int argc, char *argv[]) {
     FILE *src_file = fopen(argv[1], "rb");
     if (src_file == NULL) return -1;
