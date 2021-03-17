@@ -25,3 +25,8 @@ cd ClangCurriculumDesign
 - `in.txt`为待压缩文件
 - `out.txt`为压缩后的文件
 - `out.txt1`为解压后的文件
+
+### [位图直方图均衡](./histogram_equalization)
+
+注意此程序需要在Windows下运行
+
