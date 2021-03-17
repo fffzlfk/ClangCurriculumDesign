@@ -1,3 +1,0 @@
-"D:\Program Files\JetBrains\CLion 2020.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\ClangCurriculumDesign.dir/objects.a
-C:\mingw64\bin\ar.exe cr CMakeFiles\ClangCurriculumDesign.dir/objects.a @CMakeFiles\ClangCurriculumDesign.dir\objects1.rsp
-C:\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\ClangCurriculumDesign.dir/objects.a -Wl,--no-whole-archive  -o ClangCurriculumDesign.exe -Wl,--out-implib,libClangCurriculumDesign.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ClangCurriculumDesign.dir\linklibs.rsp
