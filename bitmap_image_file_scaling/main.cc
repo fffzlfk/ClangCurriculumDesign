@@ -77,10 +77,9 @@ int main(int argc, char *argv[]) {
 
     fwrite(color_table, sizeof(RGBQUAD), 256, out_file);
 
-    fwrite(res_buf, new_line_byte * new_height, 1, src_file);
+    fwrite(res_buf, new_line_byte * new_height, 1, out_file);
 
     fclose(out_file);
     
-    system("pause");
     return 0;
 }
