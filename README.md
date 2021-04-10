@@ -31,3 +31,8 @@ cd ClangCurriculumDesign
 注意此程序需要在Windows下运行
 
 ### [简单文件数据库-模拟图书馆管理系统](./libsim)
+
+```bash
+Libsim –a(-u) xxxx
+# 第一个参数为可执行程序名称；第二个参数为用户身份，-a表示管理员，-u表示读者；第三个参数为用户名
+```
