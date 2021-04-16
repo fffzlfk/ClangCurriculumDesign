@@ -30,6 +30,16 @@ cd ClangCurriculumDesign
 
 注意此程序需要在Windows下运行
 
+```bash
+hist.exe [原始图像文件名] [新文件名]
+```
+
+### [位图图像文件缩放](./bitmap_image_file_scaling)
+
+```bash
+zoom.exe [原始图像文件名] [缩放比例] [新文件名]
+```
+
 ### [简单文件数据库-模拟图书馆管理系统](./libsim)
 
 ```bash
