@@ -21,8 +21,10 @@ class Book {
 
     std::string getName() { return name; }
 
+    // 修改书籍名
     void changeName(std::string newName) { name = newName; }
 
+    // 修改数量
     void changeQuantity(int newQuantity) { quantity = newQuantity; }
 
     bool setBorrow(int readerId) {

@@ -10,9 +10,11 @@
 
 class Reader;
 
+// 存储书籍信息和用户信息
 std::unordered_map<int, Book> Books;
 std::unordered_map<int, std::shared_ptr<Reader>> Readers;
 
+// 读者类
 class Reader {
     int id;
     std::string name;
@@ -128,6 +130,7 @@ class Reader {
     }
 
    private:
+    // 查询书籍
     void queryBook(int bookId) {
         if (!Books.count(bookId)) {
             std::cout << "查无此书" << std::endl;
@@ -147,6 +150,7 @@ class Reader {
     }
 };
 
+// 管理员类
 class Administrator {
    public:
     void inputBook() {

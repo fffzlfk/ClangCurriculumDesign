@@ -3,6 +3,7 @@
 #include <Windows.h>
 
 int main(int argc, char *argv[]) {
+    // 获取命令行参数
     FILE *src_file = fopen(argv[1], "rb");
     if (src_file == NULL) return -1;
 
@@ -24,8 +25,10 @@ int main(int argc, char *argv[]) {
 
     fclose(src_file);
 
+    // 缩放大小
     double scale = atoi(argv[2]) / 100.0;
 
+    // 缩放后的图片大小
     int new_width = round(width * scale);
     int new_height = round(height * scale);
     int new_line_byte = (new_width * bi_count / 8 + 3) / 4 * 4;
@@ -49,7 +52,7 @@ int main(int argc, char *argv[]) {
     FILE *out_file = fopen(argv[3], "wb");
     if (out_file == NULL) return -1;
 
-
+    // 新位图头
     BITMAPFILEHEADER res_file_head;
     res_file_head.bfOffBits = 14 + 40 + 1024;
     res_file_head.bfReserved1 = 0;
@@ -71,6 +74,8 @@ int main(int argc, char *argv[]) {
     res_info_head.biWidth = new_width;
     res_info_head.biXPelsPerMeter = 0;
     res_info_head.biYPelsPerMeter = 0;
+
+    // 写入文件
     fwrite(&res_info_head, sizeof(BITMAPINFOHEADER), 1, out_file);
 
     fwrite(color_table, sizeof(RGBQUAD), 256, out_file);

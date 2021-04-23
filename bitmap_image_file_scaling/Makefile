@@ -1,5 +1,5 @@
 main: main.cc
 	g++.exe -o zoom main.cc
-	./zoom.exe origin_girl.bmp 200 output.bmp
+	./zoom.exe origin_girl.bmp 150 output.bmp
 clear: zoom.exe
 	rm zoom.exe
